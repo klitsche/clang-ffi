@@ -1,4 +1,12 @@
 # clang-ffi
+
+[![Build](https://github.com/klitsche/clang-ffi/workflows/Build/badge.svg)](https://github.com/klitsche/clang-ffi/actions?query=workflow%3Atest)
+[![Build macOS](https://github.com/klitsche/clang-ffi/workflows/Build%20macOS/badge.svg)](https://github.com/klitsche/clang-ffi/actions?query=workflow%3Atest-macos)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/439f6cf45adc85c463cc/test_coverage)](https://codeclimate.com/github/klitsche/clang-ffi/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/439f6cf45adc85c463cc/maintainability)](https://codeclimate.com/github/klitsche/clang-ffi/maintainability)
+[![Packagist](https://img.shields.io/packagist/v/klitsche/clang-ffi)](https://packagist.org/packages/klitsche/clang-ffi)
+
 A library for PHP exposing libclang via FFI.
 
 It allows easy traversing and analyzing of an abstract syntax tree of a c / c++ file.
@@ -52,7 +60,6 @@ Dump autoload to trigger compilation
 
 ## Todos
 
-* [ ] Add github action
 * [ ] Add example
 * [ ] Add ffigen
 * [ ] Add multiversion support for llvm >9 (some const values are different)
