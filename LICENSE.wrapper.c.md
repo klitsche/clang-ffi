@@ -1,5 +1,6 @@
 LICENSE.wrapper.c covers file: src/FFI/libclang/wrapper.c  
 based on wrapper.c from https://github.com/dart-lang/ffigen
+
 ---
 
 Copyright 2020, the Dart project authors. All rights reserved.
