@@ -1,0 +1,49 @@
+{
+    "name": "klitsche/clang-ffi",
+    "description": "libclang binding via ffi",
+    "homepage": "https://github.com/klitsche/clang-ffi",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dirk Adler",
+            "email": "dirx@klitsche.de"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "ext-ffi": "*",
+        "symfony/polyfill-php80": "^1.20",
+        "symfony/process": "^4.4 || ^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Klitsche\\Clang\\": "src/"
+        },
+        "files": [
+            "src/FFI/constants.php"
+        ]
+    },
+    "require-dev": {
+        "composer/composer": "^2.0",
+        "phpunit/phpunit": "^9.5",
+        "symplify/easy-coding-standard": "^9.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Klitsche\\Clang\\": "tests/",
+            "Klitsche\\Clang\\FFIGen\\": "resources/FFIGen/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "scripts": {
+        "post-autoload-dump": "Klitsche\\Clang\\FFI\\libclang\\Compiler::run",
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-text --coverage-clover=clover.xml",
+        "cs": "vendor/bin/ecs check src tests --ansi",
+        "cs-fix": "vendor/bin/ecs check src tests --ansi --fix"
+    }
+}

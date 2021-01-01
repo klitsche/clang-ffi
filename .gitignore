@@ -1,0 +1,5 @@
+/composer.lock
+/src/FFI/libclang/libclangwrapper.dylib
+/src/FFI/libclang/libclangwrapper.so
+/src/FFI/libclang/libclangwrapper.dll
+/.phpunit.cache/
