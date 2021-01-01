@@ -38,7 +38,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           coverage: none
-          extensions: ffi, pcntl
+          extensions: ffi
 
       - name: Get composer cache directory
         id: composer-cache
@@ -52,14 +52,8 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
       - name: Install dependencies
         run: |
-          composer update --prefer-dist --prefer-stable --no-interaction -vvv
+          composer update --prefer-dist --prefer-stable --no-interaction --ignore-platform-req=php -vvv
 
       - name: Run tests
         run: |
-          composer test-init
           composer test
-
-      - name: Stop kafka
-        run: |
-          kafka-server-stop;
-          zookeeper-server-stop;

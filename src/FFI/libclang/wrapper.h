@@ -2,8 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-#ifndef CLANGWRAPPER_H_
-#define CLANGWRAPPER_H_
+#ifndef WRAPPER_H_
+#define WRAPPER_H_
 
 #include <clang-c/Index.h>
 
@@ -109,4 +109,4 @@ int clang_getNumOverloadedDecls_wrap(CXCursor *cursor);
 
 CXCursor *clang_getOverloadedDecl_wrap(CXCursor *cursor, unsigned index);
 
-#endif // CLANGWRAPPER_H_
+#endif // WRAPPER_H_
