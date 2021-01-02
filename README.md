@@ -27,11 +27,11 @@ Expect breaking changes along all 0.* pre-releases.
 
 ## Quick Start
 
-Install latest llvm with clang ...
+Install llvm with clang ...
 
-... on macOS
+... on macOS (see https://formulae.brew.sh/formula/llvm)
 
-    brew install llvm
+    brew install llvm@11
 
 ... on Debian / Ubuntu (see https://apt.llvm.org/)
 
@@ -39,8 +39,8 @@ Install latest llvm with clang ...
     apt-get install wget lsb-release software-properties-common ca-certificates gnupg; \
     wget -q https://apt.llvm.org/llvm.sh; \
     chmod +x llvm.sh; \
-    sudo ./llvm.sh 9; \
-    apt-get install libclang-9-dev;
+    sudo ./llvm.sh 11; \
+    apt-get install libclang-11-dev;
 
 Install in your project
 
