@@ -53,6 +53,6 @@ trait SetupTrait
 
         $this->cursors = $collector->cursors;
 
-//        print_r(array_map(fn(CXCursor $cursor) => $cursor->getKindSpelling(), $this->cursors));
+//        print_r(array_map(fn (CXCursor $cursor) => $cursor->getKindSpelling(), $this->cursors));
     }
 }

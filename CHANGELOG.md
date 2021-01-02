@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+### Added
+
+- Add support for CXCursorPrintPolicy
+
 ## [0.1.0] - 2021-01-02
 
 ### Added

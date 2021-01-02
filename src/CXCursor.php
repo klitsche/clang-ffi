@@ -123,11 +123,19 @@ class CXCursor
         return (string) new CXString($string);
     }
 
-    public function getPrettyPrinted(): string
+    public function getPrettyPrinted(?CXPrinterPolicy $policy = null): string
     {
-        // todo: support policy
-        $string = Library::get()->clang_getCursorPrettyPrinted_wrap($this->cxCursor, null);
+        $string = Library::get()->clang_getCursorPrettyPrinted_wrap(
+            $this->cxCursor,
+            $policy === null ? null : $policy->getCData()
+        );
         return (string) new CXString($string);
+    }
+
+    public function getPrintingPolicy()
+    {
+        $policy = Library::get()->clang_getCursorPrintingPolicy_wrap($this->cxCursor);
+        return new CXPrinterPolicy($policy);
     }
 
     public function getFieldDeclBitWidth(): int

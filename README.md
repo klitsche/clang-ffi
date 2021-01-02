@@ -49,9 +49,9 @@ Install in your project
 Add to composer.json (this will trigger compilation of wrapped libclang library)
 
 ```json
-    "scripts": {
-        "post-autoload-dump": "Klitsche\\Clang\\FFI\\libclang\\Compiler::run",
-    },
+"scripts": {
+    "post-autoload-dump": "Klitsche\\Clang\\FFI\\libclang\\Compiler::run",
+},
 ```
 
 Dump autoload to trigger compilation

@@ -11,12 +11,14 @@ use const Klitsche\Clang\FFI\CXCursor_TranslationUnit;
 use const Klitsche\Clang\FFI\CXEval_Float;
 use const Klitsche\Clang\FFI\CXEval_Int;
 use const Klitsche\Clang\FFI\CXEval_StrLiteral;
+use const Klitsche\Clang\FFI\CXPrintingPolicy_IncludeTagDefinition;
 
 /**
  * @covers \Klitsche\Clang\CXCursor
  * @covers \Klitsche\Clang\CXString
  * @covers \Klitsche\Clang\FFI\CXCursorVisitorProxy
  * @covers \Klitsche\Clang\CXEvalResult
+ * @covers \Klitsche\Clang\CXPrinterPolicy
  * @covers \Klitsche\Clang\FFI\Library
  * @uses \Klitsche\Clang\CXIndex
  * @uses \Klitsche\Clang\CXTranslationUnit
@@ -116,6 +118,34 @@ class CXCursorTest extends TestCase
             }
             CFILE,
             $cursor->getPrettyPrinted()
+        );
+    }
+
+    public function testGetPrintingPolicy(): void
+    {
+        $cursor = $this->cursors['c:test.h@T@b_t'];
+
+        $policy = $cursor->getPrintingPolicy();
+
+        $this->assertFalse($policy->getProperty(CXPrintingPolicy_IncludeTagDefinition));
+        $this->assertSame(
+            <<<CFILE
+            typedef struct b b_t
+            CFILE,
+            $cursor->getPrettyPrinted($policy)
+        );
+
+        $policy->setProperty(CXPrintingPolicy_IncludeTagDefinition, true);
+
+        $this->assertTrue($policy->getProperty(CXPrintingPolicy_IncludeTagDefinition));
+        $this->assertSame(
+            <<<CFILE
+            typedef struct b {
+                a_t *field1;
+                a_t *field2;
+            } b_t
+            CFILE,
+            $cursor->getPrettyPrinted($policy)
         );
     }
 

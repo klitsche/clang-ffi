@@ -368,9 +368,9 @@ int clang_getFieldDeclBitWidth_wrap(CXCursor *cursor){
     return clang_getFieldDeclBitWidth(*cursor);
 }
 
-CXString *clang_getCursorPrettyPrinted_wrap(CXCursor *cursor, CXPrintingPolicy Policy)
+CXString *clang_getCursorPrettyPrinted_wrap(CXCursor *cursor, CXPrintingPolicy policy)
 {
-    return ptrToCXString(clang_getCursorPrettyPrinted(*cursor, Policy));
+    return ptrToCXString(clang_getCursorPrettyPrinted(*cursor, policy));
 }
 
 CXCursor *clang_getCursorReferenced_wrap(CXCursor *cursor)
@@ -396,6 +396,11 @@ int clang_getNumOverloadedDecls_wrap(CXCursor *cursor)
 CXCursor *clang_getOverloadedDecl_wrap(CXCursor *cursor, unsigned index)
 {
     return ptrToCXCursor(clang_getOverloadedDecl(*cursor, index));
+}
+
+CXPrintingPolicy clang_getCursorPrintingPolicy_wrap(CXCursor *cursor)
+{
+    return clang_getCursorPrintingPolicy(*cursor);
 }
 
 // END ===== WRAPPER FUNCTIONS =====================

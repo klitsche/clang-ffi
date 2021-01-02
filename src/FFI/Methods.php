@@ -3509,12 +3509,12 @@ trait Methods
 
     /**
      * @param \FFI\CData|null $cursor CXCursor*
-     * @param \FFI\CData|object|string|null $Policy void*
+     * @param \FFI\CData|object|string|null $policy void*
      * @return \FFI\CData|null CXString*
      */
-    public function clang_getCursorPrettyPrinted_wrap(?\FFI\CData $cursor, $Policy): ?\FFI\CData
+    public function clang_getCursorPrettyPrinted_wrap(?\FFI\CData $cursor, $policy): ?\FFI\CData
     {
-        return static::getFFI()->clang_getCursorPrettyPrinted_wrap($cursor, $Policy);
+        return static::getFFI()->clang_getCursorPrettyPrinted_wrap($cursor, $policy);
     }
 
     /**
@@ -3561,5 +3561,14 @@ trait Methods
     public function clang_getOverloadedDecl_wrap(?\FFI\CData $cursor, ?int $index): ?\FFI\CData
     {
         return static::getFFI()->clang_getOverloadedDecl_wrap($cursor, $index);
+    }
+
+    /**
+     * @param \FFI\CData|null $cursor CXCursor*
+     * @return \FFI\CData|object|string|null void*
+     */
+    public function clang_getCursorPrintingPolicy_wrap(?\FFI\CData $cursor)
+    {
+        return static::getFFI()->clang_getCursorPrintingPolicy_wrap($cursor);
     }
 }

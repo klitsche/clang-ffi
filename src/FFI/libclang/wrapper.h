@@ -97,7 +97,7 @@ CXString *clang_getCursorUSR_wrap(CXCursor *cursor);
 
 int clang_getFieldDeclBitWidth_wrap(CXCursor *cursor);
 
-CXString *clang_getCursorPrettyPrinted_wrap(CXCursor *cursor, CXPrintingPolicy Policy);
+CXString *clang_getCursorPrettyPrinted_wrap(CXCursor *cursor, CXPrintingPolicy policy);
 
 CXCursor *clang_getCursorReferenced_wrap(CXCursor *cursor);
 
@@ -108,5 +108,7 @@ int clang_isConstQualifiedType_wrap(CXType *cxtype);
 int clang_getNumOverloadedDecls_wrap(CXCursor *cursor);
 
 CXCursor *clang_getOverloadedDecl_wrap(CXCursor *cursor, unsigned index);
+
+CXPrintingPolicy clang_getCursorPrintingPolicy_wrap(CXCursor *cursor);
 
 #endif // WRAPPER_H_
