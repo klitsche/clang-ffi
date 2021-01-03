@@ -7,7 +7,7 @@ namespace Klitsche\Clang;
 use FFI\CData;
 use Klitsche\Clang\FFI\Library;
 
-class CXPrinterPolicy
+class CXPrintingPolicy
 {
     private CData $cxPrinterPolicy;
 

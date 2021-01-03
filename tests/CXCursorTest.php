@@ -18,7 +18,7 @@ use const Klitsche\Clang\FFI\CXPrintingPolicy_IncludeTagDefinition;
  * @covers \Klitsche\Clang\CXString
  * @covers \Klitsche\Clang\FFI\CXCursorVisitorProxy
  * @covers \Klitsche\Clang\CXEvalResult
- * @covers \Klitsche\Clang\CXPrinterPolicy
+ * @covers \Klitsche\Clang\CXPrintingPolicy
  * @covers \Klitsche\Clang\FFI\Library
  * @uses \Klitsche\Clang\CXIndex
  * @uses \Klitsche\Clang\CXTranslationUnit
