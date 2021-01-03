@@ -26,13 +26,13 @@ class CXPrintingPolicy
         Library::get()->clang_PrintingPolicy_dispose($this->cxPrinterPolicy);
     }
 
-    public function setProperty(int $property, bool $value): void
+    public function setProperty(int $property, int $value): void
     {
-        Library::get()->clang_PrintingPolicy_setProperty($this->cxPrinterPolicy, $property, (int) $value);
+        Library::get()->clang_PrintingPolicy_setProperty($this->cxPrinterPolicy, $property, $value);
     }
 
-    public function getProperty(int $property)
+    public function getProperty(int $property): int
     {
-        return (bool) Library::get()->clang_PrintingPolicy_getProperty($this->cxPrinterPolicy, $property);
+        return Library::get()->clang_PrintingPolicy_getProperty($this->cxPrinterPolicy, $property);
     }
 }

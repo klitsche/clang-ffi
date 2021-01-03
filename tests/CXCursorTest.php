@@ -127,7 +127,7 @@ class CXCursorTest extends TestCase
 
         $policy = $cursor->getPrintingPolicy();
 
-        $this->assertFalse($policy->getProperty(CXPrintingPolicy_IncludeTagDefinition));
+        $this->assertSame(0, $policy->getProperty(CXPrintingPolicy_IncludeTagDefinition));
         $this->assertSame(
             <<<CFILE
             typedef struct b b_t
@@ -135,9 +135,9 @@ class CXCursorTest extends TestCase
             $cursor->getPrettyPrinted($policy)
         );
 
-        $policy->setProperty(CXPrintingPolicy_IncludeTagDefinition, true);
+        $policy->setProperty(CXPrintingPolicy_IncludeTagDefinition, 1);
 
-        $this->assertTrue($policy->getProperty(CXPrintingPolicy_IncludeTagDefinition));
+        $this->assertSame(1, $policy->getProperty(CXPrintingPolicy_IncludeTagDefinition));
         $this->assertSame(
             <<<CFILE
             typedef struct b {
