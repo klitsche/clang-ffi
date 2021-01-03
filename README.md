@@ -58,9 +58,28 @@ Dump autoload to trigger compilation
 
     composer dump-autoload
 
+## Run examples
+
+Checkout & prepare
+
+    git clone https://github.com/klitsche/clang-ffi.git; \
+    cd clang-ffi; \
+    docker-compose build;
+
+Print parsed file
+
+    docker-compose run --rm php74 php examples/print.php
+
+Collect and dump simplified AST nodes as json
+
+    docker-compose run --rm php74 php examples/json.php
+
+Dump found issues during parsing
+
+    docker-compose run --rm php74 php examples/issues.php
+
 ## Todos
 
-* [ ] Add example
 * [ ] Add ffigen
 * [ ] Add multiversion support for llvm >9 (some const values are different)
 * [ ] Add documentation
