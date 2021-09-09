@@ -27,6 +27,7 @@ $translationUnit = $index->parseTranslationUnit(
         '-I/usr/lib/llvm-10/include/',
         '-I/usr/lib/llvm-11/include/',
         '-I/usr/lib/llvm-12/include/',
+        '-I/usr/lib/llvm-13/include/',
         // see https://clang.llvm.org/docs/LibTooling.html#libtooling-builtin-includes
         '-I/usr/lib/llvm-9/lib/clang/9.0.1/include',
         '-ferror-limit=0',

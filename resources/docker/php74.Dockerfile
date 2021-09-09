@@ -1,4 +1,4 @@
-FROM php:7.4-cli as base
+FROM php:7.4-cli-buster as base
 
 RUN set -e; \
     apt-get update; \

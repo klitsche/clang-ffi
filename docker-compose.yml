@@ -1,10 +1,26 @@
 version: '3'
 
 services:
+  # min requirements
   php74:
     build:
       context: resources/docker
+      dockerfile: php74.Dockerfile
     image: php74-clang-ffi
+    volumes:
+      - .:/app
+    environment:
+      XDEBUG_CONFIG: "client_port=9003 client_host=host.docker.internal start_with_request=no"
+      PHP_IDE_CONFIG: "serverName=127.0.0.1"
+      XDEBUG_SESSION: PHPSTORM
+      XDEBUG_MODE: develop,coverage,debug
+
+  # latest requirements
+  php80:
+    build:
+      context: resources/docker
+      dockerfile: php80.Dockerfile
+    image: php80-clang-ffi
     volumes:
       - .:/app
     environment:

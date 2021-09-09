@@ -23,6 +23,7 @@ class Compiler
                 '-I/usr/lib/llvm-10/include/',
                 '-I/usr/lib/llvm-11/include/',
                 '-I/usr/lib/llvm-12/include/',
+                '-I/usr/lib/llvm-13/include/',
                 '-v',
                 '-lclang',
                 '-shared',
@@ -38,6 +39,7 @@ class Compiler
                 '-I/usr/local/opt/llvm@10/include/',
                 '-I/usr/local/opt/llvm@11/include/',
                 '-I/usr/local/opt/llvm@12/include/',
+                '-I/usr/local/opt/llvm@13/include/',
                 '-I/usr/local/opt/llvm/include/',
                 '-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/',
                 '-L/usr/local/opt/llvm/lib/',
@@ -86,7 +88,7 @@ class Compiler
 
         if (empty($this->config[PHP_OS_FAMILY]['clangBin'])) {
             $this->io->writeError('<error>Cannot detect clang binary to compile libclangwrapper</error>');
-            $this->io->writeError('  clang >= 9 ist required');
+            $this->io->writeError('  clang >= 9 is required');
             $this->io->writeError('  Is llvm with clang installed on your system?');
             $this->io->writeError('  You may configure extras.clang-ffi.{PHP_OS_FAMILY}.clangBin in composer.json');
             return 1;
@@ -144,6 +146,7 @@ class Compiler
     protected function detectClang(): ?string
     {
         $clangBins = [
+            'clang-13',
             'clang-12',
             'clang-11',
             'clang-10',

@@ -19,6 +19,8 @@ jobs:
           - '9'
           - '10'
           - '11'
+          - '12'
+          - '13'
     continue-on-error: ${{ matrix.php == '8.1' }}
     env:
       PHP_VERSION: ${{ matrix.php }}
