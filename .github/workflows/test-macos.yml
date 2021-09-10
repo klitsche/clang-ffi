@@ -17,9 +17,10 @@ jobs:
           - '8.1'
         llvm:
           - '9'
+# not available          - '10'
           - '11'
           - '12'
-          - '13'
+# not available         - '13'
     continue-on-error: ${{ matrix.php == '8.1' }}
     defaults:
       run:
