@@ -15,23 +15,31 @@ jobs:
           - '7.4'
           - '8.0'
           - '8.1'
+        llvm:
+          - '9'
+          - '10'
+          - '11'
+          - '12'
+          - '13'
     continue-on-error: ${{ matrix.php == '8.1' }}
     defaults:
       run:
         shell: bash
     env:
       PHP_VERSION: ${{ matrix.php }}
+      LLVM_VERSION: ${{ matrix.llvm }}
       COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install llvm
+      - name: Install llvm ${{ matrix.llvm }}
         shell: bash
         run: |
           brew update
-          brew install llvm
+          brew install llvm@$LLVM_VERSION
+          /usr/local/opt/llvm@$LLVM_VERSION/bin/clang --version
 
       - name: Install PHP ${{ matrix.php }}
         uses: shivammathur/setup-php@v2
@@ -52,6 +60,7 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
       - name: Install dependencies
         run: |
+          composer config extra.clang-ffi --json "{\"Darwin\":{\"clangBin\":\"/usr/local/opt/llvm@$LLVM_VERSION/bin/clang\"}}"
           composer update --prefer-dist --prefer-stable --no-interaction --ignore-platform-req=php -vvv
 
       - name: Run tests

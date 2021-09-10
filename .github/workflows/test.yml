@@ -33,10 +33,11 @@ jobs:
 
       - name: Install llvm ${{ matrix.llvm }}
         run: |
-          wget -q https://apt.llvm.org/llvm.sh; \
-          chmod +x llvm.sh; \
-          sudo ./llvm.sh $LLVM_VERSION; \
+          wget -q https://apt.llvm.org/llvm.sh
+          chmod +x llvm.sh
+          sudo ./llvm.sh $LLVM_VERSION
           sudo apt-get install libclang-$LLVM_VERSION-dev
+          clang-$LLVM_VERSION --version
 
       - name: Install PHP ${{ matrix.php }}
         uses: shivammathur/setup-php@v2
@@ -57,6 +58,7 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
       - name: Install dependencies
         run: |
+          composer config extra.clang-ffi --json "{\"Linux\":{\"clangBin\":\"/usr/clang-$LLVM_VERSION\"}}"
           composer update --prefer-dist --prefer-stable --no-interaction --ignore-platform-req=php -vvv
 
       - name: Run tests

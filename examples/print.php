@@ -23,11 +23,19 @@ $index = new CXIndex();
 $translationUnit = $index->parseTranslationUnit(
     $file,
     [
-        '-I/usr/lib/llvm-9/include/',
-        '-I/usr/lib/llvm-10/include/',
-        '-I/usr/lib/llvm-11/include/',
-        '-I/usr/lib/llvm-12/include/',
+        // linux
         '-I/usr/lib/llvm-13/include/',
+        '-I/usr/lib/llvm-12/include/',
+        '-I/usr/lib/llvm-11/include/',
+        '-I/usr/lib/llvm-10/include/',
+        '-I/usr/lib/llvm-9/include/',
+        // darwin
+        '-I/usr/local/opt/llvm@13/include/',
+        '-I/usr/local/opt/llvm@12/include/',
+        '-I/usr/local/opt/llvm@11/include/',
+        '-I/usr/local/opt/llvm@10/include/',
+        '-I/usr/local/opt/llvm@9/include/',
+        '-I/usr/local/opt/llvm/include/',
         // see https://clang.llvm.org/docs/LibTooling.html#libtooling-builtin-includes
         '-I/usr/lib/llvm-9/lib/clang/9.0.1/include',
         '-ferror-limit=0',
