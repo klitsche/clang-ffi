@@ -54,12 +54,12 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
-          restore-keys: ${{ runner.os }}-composer-
+          key: ${{ runner.os }}-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.php }}-composer-
       - name: Install dependencies
         run: |
           composer config extra.clang-ffi --json "{\"Linux\":{\"clangBin\":\"/usr/clang-$LLVM_VERSION\"}}"
-          composer update --prefer-dist --prefer-stable --no-interaction --ignore-platform-req=php -vvv
+          composer update --prefer-dist --prefer-stable --no-interaction -vvv
 
       - name: Run tests
         run: |
