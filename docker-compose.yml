@@ -28,3 +28,16 @@ services:
       PHP_IDE_CONFIG: "serverName=127.0.0.1"
       XDEBUG_SESSION: PHPSTORM
       XDEBUG_MODE: develop,coverage,debug
+
+  php81:
+    build:
+      context: resources/docker
+      dockerfile: php81.Dockerfile
+    image: php81-clang-ffi
+    volumes:
+      - .:/app
+    environment:
+      XDEBUG_CONFIG: "client_port=9003 client_host=host.docker.internal start_with_request=no"
+      PHP_IDE_CONFIG: "serverName=127.0.0.1"
+      XDEBUG_SESSION: PHPSTORM
+      XDEBUG_MODE: develop,coverage,debug
