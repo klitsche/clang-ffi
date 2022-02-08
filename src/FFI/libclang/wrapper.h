@@ -101,11 +101,11 @@ CXString *clang_getCursorPrettyPrinted_wrap(CXCursor *cursor, CXPrintingPolicy p
 
 CXCursor *clang_getCursorReferenced_wrap(CXCursor *cursor);
 
-int clang_isFunctionTypeVariadic_wrap(CXType *cxtype);
+unsigned clang_isFunctionTypeVariadic_wrap(CXType *type);
 
-int clang_isConstQualifiedType_wrap(CXType *cxtype);
+unsigned clang_isConstQualifiedType_wrap(CXType *type);
 
-int clang_getNumOverloadedDecls_wrap(CXCursor *cursor);
+unsigned clang_getNumOverloadedDecls_wrap(CXCursor *cursor);
 
 CXCursor *clang_getOverloadedDecl_wrap(CXCursor *cursor, unsigned index);
 

@@ -82,7 +82,6 @@ void clang_disposeString_wrap(CXString *string)
 {
     clang_disposeString(*string);
     free(string);
-    return;
 }
 
 enum CXCursorKind clang_getCursorKind_wrap(CXCursor *cursor)
@@ -334,7 +333,7 @@ CXType *clang_getArrayElementType_wrap(CXType *cxtype)
     return ptrToCXType(clang_getArrayElementType(*cxtype));
 }
 
-unsigned clang_Cursor_isMacroFunctionLike_wrap(CXCursor *cursor)
+unsigned int clang_Cursor_isMacroFunctionLike_wrap(CXCursor *cursor)
 {
     return clang_Cursor_isMacroFunctionLike(*cursor);
 }
@@ -378,17 +377,17 @@ CXCursor *clang_getCursorReferenced_wrap(CXCursor *cursor)
     return ptrToCXCursor(clang_getCursorReferenced(*cursor));
 }
 
-int clang_isFunctionTypeVariadic_wrap(CXType *type)
+unsigned clang_isFunctionTypeVariadic_wrap(CXType *type)
 {
     return clang_isFunctionTypeVariadic(*type);
 }
 
-int clang_isConstQualifiedType_wrap(CXType *type)
+unsigned clang_isConstQualifiedType_wrap(CXType *type)
 {
     return clang_isConstQualifiedType(*type);
 }
 
-int clang_getNumOverloadedDecls_wrap(CXCursor *cursor)
+unsigned clang_getNumOverloadedDecls_wrap(CXCursor *cursor)
 {
     return clang_getNumOverloadedDecls(*cursor);
 }
